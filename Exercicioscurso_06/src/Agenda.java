@@ -1,24 +1,20 @@
-/*
-Crie uma classe Agenda que pode armazenar contatos, podendo realizar as seguintes
-operações:
-- void armazenarContato(Contato contato);
-- void removeContato(Contato contato);
-- int buscaContato(String nome); // Informa em que posição da agenda está o contato.
-- void imprimeAgenda(); // Imprime os dados de todos os contatos da agenda.
-- void imprimeContato(int index); // Imprime os dados do contato que está no índice informado.
- */
 import java.util.ArrayList;
 public class Agenda {
+    //declaração do array
     private ArrayList<Contato> contatos;
+    //criação do array
     public Agenda() {
         contatos = new ArrayList<>();
     }
+    //adicionar contato na agenda
     public void armazenarContato(Contato contato) {
         contatos.add(contato);
     }
+    //remover contato na agenda
     public void removeContato(Contato contato) {
         contatos.remove(contato);
     }
+    //buscar contato pelo nome e retornar o índice desse contato na agenda
     public int buscaContato(String nome) {
         int i;
         for (i = 0; i < contatos.size(); i++) {
@@ -28,11 +24,13 @@ public class Agenda {
         }
         return -1;
     }
+    //imprime toda a agenda em ordem crescente de registro
     void imprimeAgenda() {
         for (Contato contato : contatos) {
             contato.imprime_contatos();
         }
     }
+    //imprime o contato na agenda de acordo com seu índice nesta
     public void imprimeContato(int index) {
         if (index >= 0 && index < contatos.size()) {
             contatos.get(index).imprime_contatos();
